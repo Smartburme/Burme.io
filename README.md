@@ -1,6 +1,6 @@
 # Smart Burme - Web Application
 
-![Smart Burme Screenshot](photo/screenshot.png)
+![Smart Burme Screenshot](photo/screenshot.jpg)
 
 ## Overview
 Smart Burme is a responsive web application with a modern UI design featuring gradient backgrounds, smooth animations, and mobile-friendly layout. The application includes login/signup functionality and a sliding menu navigation system.
