@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading Animation</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #006994; /* Seablue color */
+        }
+
         #page {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #222;
+            width: 100vw;
         }
 
         #container {
@@ -25,6 +32,8 @@
             color: white;
             margin-top: 20px;
             font-family: Arial, sans-serif;
+            font-size: 1.5rem;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
         }
 
         #ring {
@@ -99,7 +108,7 @@
             <div id="ring"></div>
             <div id="ring"></div>
             <div id="ring"></div>
-            <h3 id="h3"> S & B...</h3>
+            <h3 id="h3">Smart Burme</h3>
         </div>
     </div>
 
