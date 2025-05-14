@@ -1,225 +1,60 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Smart Burme - Login</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+# Smart Burme - Web Application
 
-        body, html {
-            height: 100%;
-            overflow: hidden;
-            background: linear-gradient(to bottom right, #000428, #004e92);
-            position: relative;
-        }
+![Smart Burme Screenshot](screenshot.png)
 
-        .background {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('scr/background.jpg') no-repeat center center/cover;
-            filter: brightness(0.5) blur(2px);
-            z-index: -1;
-        }
+## Overview
+Smart Burme is a responsive web application with a modern UI design featuring gradient backgrounds, smooth animations, and mobile-friendly layout. The application includes login/signup functionality and a sliding menu navigation system.
 
-        .container {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+## Features
 
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
+- **Responsive Design**: Works on mobile, tablet, and desktop devices
+- **Modern UI**:
+  - Gradient background and text effects
+  - Smooth sliding menu animation
+  - Centered card-style layout
+- **Device Detection**: Automatically detects mobile/desktop browsers
+- **Responsive Buttons**: Perfectly centered Sign In/Sign Up buttons that adapt to screen size
 
-        p {
-            margin-bottom: 30px;
-            font-size: 1em;
-            opacity: 0.8;
-        }
+## File Structure
 
-        .buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 400px;
-        }
 
-        .buttons button {
-            padding: 12px 0;
-            font-size: 1em;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
-            transition: 0.3s;
-            width: 45%;
-            min-width: 120px;
-            max-width: 180px;
-        }
 
-        .buttons button:hover {
-            opacity: 0.8;
-        }
+## Installation
 
-        footer {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 0.8em;
-            background: linear-gradient(to right, #00c6ff, #0072ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-fill-color: transparent;
-        }
+No installation required. Simply open `index.html` in any modern web browser.
 
-        /* Slide Menu */
-        .menu-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            cursor: pointer;
-            z-index: 5;
-            color: white;
-        }
+## Usage
 
-        .menu {
-            position: fixed;
-            top: 0;
-            right: -250px;
-            width: 250px;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            transition: right 0.5s;
-        }
+1. Open the application in your browser
+2. Use the hamburger menu (☰) to access navigation
+3. Click "Sign In" or "Sign Up" to access respective functions
 
-        .menu a {
-            color: white;
-            font-size: 1.5em;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+## Responsive Breakpoints
 
-        .menu a:hover {
-            color: #00c6ff;
-        }
+- **Mobile**: <600px (stacks elements vertically)
+- **Tablet**: 601px-1024px (adjusted font sizes)
+- **Desktop**: >1024px (full layout)
 
-        .menu.active {
-            right: 0;
-        }
+## Technologies Used
 
-        /* Responsive Design */
-        @media only screen and (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
-            
-            p {
-                font-size: 0.9em;
-                margin-bottom: 25px;
-            }
-            
-            .buttons {
-                flex-direction: row;
-                gap: 15px;
-                max-width: 300px;
-            }
-            
-            .buttons button {
-                width: 48%;
-                padding: 10px 0;
-                font-size: 0.9em;
-            }
-            
-            .menu {
-                width: 200px;
-            }
-            
-            .menu a {
-                font-size: 1.2em;
-            }
-        }
+- HTML5
+- CSS3 (Flexbox, Media Queries, Gradients)
+- JavaScript (Basic DOM manipulation)
 
-        @media only screen and (min-width: 601px) and (max-width: 1024px) {
-            h1 {
-                font-size: 2.2em;
-            }
-            
-            .buttons button {
-                padding: 15px 0;
-            }
-        }
-    </style>
-</head>
-<body>
+## Customization
 
-<div class="background"></div>
+To modify styles:
+1. Edit the `<style>` section in `index.html`
+2. Main color scheme uses these gradients:
+   - Background: `#000428` to `#004e92`
+   - Buttons: `#6a11cb` to `#2575fc`
+   - Text: `#00c6ff` to `#0072ff`
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
+## License
 
-<div class="menu" id="menu">
-    <a href="scr/newfeed.html">Newfeed</a>
-    <a href="scr/menu/chatting.html">Chatting</a>
-    <a href="scr/menu/friends.html">Friends</a>
-    <a href="scr/menu/account.html">Account</a>
-    <a href="scr/menu/setting.html">Settings</a>
-    <a href="scr/menu/about.html">About</a>
-</div>
+Free to use and modify. Credit to original author appreciated.
 
-<div class="container">
-    <h1>Smart Burme</h1>
-    <p>Craft your mind, mind your craft</p>
-    <div class="buttons">
-        <button onclick="window.location.href='scr/user/sing.html'">Sign In</button>
-        <button onclick="window.location.href='scr/firebase/auth.html'">Sign Up</button>
-    </div>
-</div>
+---
 
-<footer>
-    Deployment by Aung Myo Kyaw
-</footer>
-
-<script>
-    function toggleMenu() {
-        document.getElementById('menu').classList.toggle('active');
-    }
-    
-    // Detect device type
-    function detectDevice() {
-        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            document.body.classList.add('mobile');
-        } else {
-            document.body.classList.add('desktop');
-        }
-    }
-    
-    // Run device detection on load
-    window.onload = detectDevice;
-</script>
-
-</body>
-</html>
+**Deployment by Aung Myo Kyaw**  
+*Last Updated: 2023-11-15*
