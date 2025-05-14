@@ -52,13 +52,16 @@
 
         .buttons {
             display: flex;
+            justify-content: center;
+            align-items: center;
             gap: 20px;
             margin-bottom: 20px;
-            flex-direction: row;
+            width: 100%;
+            max-width: 400px;
         }
 
         .buttons button {
-            padding: 12px 30px;
+            padding: 12px 0;
             font-size: 1em;
             border: none;
             border-radius: 25px;
@@ -66,7 +69,9 @@
             background: linear-gradient(to right, #6a11cb, #2575fc);
             color: white;
             transition: 0.3s;
+            width: 45%;
             min-width: 120px;
+            max-width: 180px;
         }
 
         .buttons button:hover {
@@ -135,16 +140,19 @@
             
             p {
                 font-size: 0.9em;
+                margin-bottom: 25px;
             }
             
             .buttons {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 15px;
+                max-width: 300px;
             }
             
             .buttons button {
-                width: 100%;
-                padding: 10px 20px;
+                width: 48%;
+                padding: 10px 0;
+                font-size: 0.9em;
             }
             
             .menu {
@@ -162,7 +170,7 @@
             }
             
             .buttons button {
-                padding: 15px 25px;
+                padding: 15px 0;
             }
         }
     </style>
@@ -214,4 +222,4 @@
 </script>
 
 </body>
-</html
+</html>
