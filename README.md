@@ -1,6 +1,6 @@
 # Smart Burme - Web Application
 
-![Smart Burme Screenshot](screenshot.png)
+![Smart Burme Screenshot](photo/screenshot.png)
 
 ## Overview
 Smart Burme is a responsive web application with a modern UI design featuring gradient backgrounds, smooth animations, and mobile-friendly layout. The application includes login/signup functionality and a sliding menu navigation system.
@@ -16,9 +16,33 @@ Smart Burme is a responsive web application with a modern UI design featuring gr
 - **Responsive Buttons**: Perfectly centered Sign In/Sign Up buttons that adapt to screen size
 
 ## File Structure
-
-
-
+```
+smart-burme/
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── main.js
+│   └── images/
+│       └── background.jpg
+├── scr/
+│   ├── auth/
+│   │   ├── firebase/
+│   │   │   └── auth.html
+│   │   └── user/
+│   │       └── sing.html
+│   ├── features/
+│   │   ├── newfeed.html
+│   │   ├── chatting.html
+│   │   └── friends.html
+│   └── menu/
+│       ├── account.html
+│       ├── setting.html
+│       └── about.html
+├── index.html
+├── README.md
+└── LICENSE
+```
 ## Installation
 
 No installation required. Simply open `index.html` in any modern web browser.
