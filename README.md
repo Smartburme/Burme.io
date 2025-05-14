@@ -1,157 +1,158 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Smart Burme - Main</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #000;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Burme - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #111;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #333;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            background: linear-gradient(to bottom right, #000428, #004e92);
+            position: relative;
+        }
 
-    .title {
-      font-size: 1.8rem;
-      font-weight: bold;
-      background: linear-gradient(45deg, cyan, dodgerblue);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('scr/background.jpg') no-repeat center center/cover;
+            filter: brightness(0.5) blur(2px);
+            z-index: -1;
+        }
 
-    .menu-btn {
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
+        .container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
 
-    .slide-menu {
-      position: fixed;
-      top: 0;
-      right: -250px;
-      width: 250px;
-      height: 100%;
-      background: #111;
-      transition: right 0.3s ease;
-      padding: 2rem 1rem;
-      z-index: 1000;
-    }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
 
-    .slide-menu.show {
-      right: 0;
-    }
+        p {
+            margin-bottom: 30px;
+            font-size: 1em;
+            opacity: 0.8;
+        }
 
-    .slide-menu a {
-      display: block;
-      color: #fff;
-      margin: 1rem 0;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
 
-    main {
-      flex: 1;
-      padding: 2rem;
-      text-align: center;
-    }
+        .buttons button {
+            padding: 12px 30px;
+            font-size: 1em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            transition: 0.3s;
+        }
 
-    .generate-btn {
-      margin-top: 2rem;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      background: linear-gradient(90deg, cyan, dodgerblue);
-      color: #000;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
+        .buttons button:hover {
+            opacity: 0.8;
+        }
 
-    .generate-btn:hover {
-      transform: scale(1.05);
-    }
+        footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.8em;
+            color: #ccc;
+        }
 
-    .light-effect {
-      position: fixed;
-      bottom: 60px;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background: radial-gradient(ellipse at center, #0ff33a33, transparent);
-      animation: float 3s ease-in-out infinite;
-      z-index: 1;
-    }
+        /* Slide Menu */
+        .menu-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 5;
+            color: white;
+        }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            transition: right 0.5s;
+        }
 
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      padding: 1.2rem 0;
-      text-align: center;
-      font-size: 0.9rem;
-      background: transparent;
-      color: #0ff;
-      text-shadow: 0 0 10px cyan;
-      z-index: 10;
-    }
-  </style>
+        .menu a {
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #00c6ff;
+        }
+
+        .menu.active {
+            right: 0;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="title">Smart Burme</div>
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-  </header>
+<div class="background"></div>
 
-  <div class="slide-menu" id="slideMenu">
-    <a href="#">Account</a>
-    <a href="#">Settings</a>
-    <hr style="border-color: #333;">
-    <a href="#">Contact</a>
-    <a href="#">About</a>
-  </div>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-  <main>
-    <h2>Generate AI Video</h2>
-    <p>Upload a photo and generate a smart video with AI.</p>
-    <button class="generate-btn">Generate Video</button>
-  </main>
+<div class="menu" id="menu">
+    <a href="scr/newfeed.html">Newfeed</a>
+    <a href="scr/menu/chatting.html">Chatting</a>
+    <a href="scr/menu/friends.html">Friends</a>
+    <a href="scr/menu/account.html">Account</a>
+    <a href="scr/menu/setting.html">Settings</a>
+    <a href="scr/menu/about.html">About</a>
+</div>
 
-  <div class="light-effect"></div>
+<div class="container">
+    <h1>Smart Burme</h1>
+    <p>Craft your mind, mind your craft</p>
+    <div class="buttons">
+        <button onclick="window.location.href='scr/user/sing.html'">Sign In</button>
+        <button onclick="window.location.href='scr/firebase/auth.html'">Sign Up</button>
+    </div>
+</div>
 
-  <footer>
-    Deploy by Aung Myo Kyaw
-  </footer>
+<footer>
+    Deployment by Aung Myo Kyaw
+</footer>
 
-  <script>
+<script>
     function toggleMenu() {
-      const menu = document.getElementById('slideMenu');
-      menu.classList.toggle('show');
+        document.getElementById('menu').classList.toggle('active');
     }
-  </script>
+</script>
 
 </body>
 </html>
