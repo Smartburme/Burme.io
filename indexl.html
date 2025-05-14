@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Animation</title>
+    <style>
+        #page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            flex-direction: column;
+        }
+
+        #h3 {
+            color: white;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        #ring {
+            width: 190px;
+            height: 190px;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        #ring:nth-child(1) {
+            border-bottom: 8px solid rgb(255, 141, 249);
+            animation: rotate1 2s linear infinite;
+        }
+
+        @keyframes rotate1 {
+            from {
+                transform: rotateX(50deg) rotateZ(110deg);
+            }
+            to {
+                transform: rotateX(50deg) rotateZ(470deg);
+            }
+        }
+
+        #ring:nth-child(2) {
+            border-bottom: 8px solid rgb(255,65,106);
+            animation: rotate2 2s linear infinite;
+        }
+
+        @keyframes rotate2 {
+            from {
+                transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
+            }
+            to {
+                transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
+            }
+        }
+
+        #ring:nth-child(3) {
+            border-bottom: 8px solid rgb(0,255,255);
+            animation: rotate3 2s linear infinite;
+        }
+
+        @keyframes rotate3 {
+            from {
+                transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
+            }
+            to {
+                transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
+            }
+        }
+
+        #ring:nth-child(4) {
+            border-bottom: 8px solid rgb(252, 183, 55);
+            animation: rotate4 2s linear infinite;
+        }
+
+        @keyframes rotate4 {
+            from {
+                transform: rotateX(70deg) rotateZ(270deg);
+            }
+            to {
+                transform: rotateX(70deg) rotateZ(630deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <div id="container">
+            <div id="ring"></div>
+            <div id="ring"></div>
+            <div id="ring"></div>
+            <div id="ring"></div>
+            <h3 id="h3">Loading...</h3>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to app.html after 6 seconds
+        setTimeout(function() {
+            window.location.href = "app.html";
+        }, 6000);
+    </script>
+</body>
+</html>
