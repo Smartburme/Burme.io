@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Smart Burme - Login</title>
     <style>
         * {
@@ -54,6 +54,7 @@
             display: flex;
             gap: 20px;
             margin-bottom: 20px;
+            flex-direction: row;
         }
 
         .buttons button {
@@ -65,6 +66,7 @@
             background: linear-gradient(to right, #6a11cb, #2575fc);
             color: white;
             transition: 0.3s;
+            min-width: 120px;
         }
 
         .buttons button:hover {
@@ -74,8 +76,14 @@
         footer {
             position: absolute;
             bottom: 10px;
+            width: 100%;
+            text-align: center;
             font-size: 0.8em;
-            color: #ccc;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
         }
 
         /* Slide Menu */
@@ -118,6 +126,45 @@
         .menu.active {
             right: 0;
         }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            p {
+                font-size: 0.9em;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .buttons button {
+                width: 100%;
+                padding: 10px 20px;
+            }
+            
+            .menu {
+                width: 200px;
+            }
+            
+            .menu a {
+                font-size: 1.2em;
+            }
+        }
+
+        @media only screen and (min-width: 601px) and (max-width: 1024px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .buttons button {
+                padding: 15px 25px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -152,7 +199,19 @@
     function toggleMenu() {
         document.getElementById('menu').classList.toggle('active');
     }
+    
+    // Detect device type
+    function detectDevice() {
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            document.body.classList.add('mobile');
+        } else {
+            document.body.classList.add('desktop');
+        }
+    }
+    
+    // Run device detection on load
+    window.onload = detectDevice;
 </script>
 
 </body>
-</html>
+</html
