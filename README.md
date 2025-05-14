@@ -1,7 +1,4 @@
-# www.amkyaw.com
 ```
-# markdown
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
