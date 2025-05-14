@@ -43,6 +43,44 @@ smart-burme/
 ├── README.md
 └── LICENSE
 ```
+## Structure 
+
+1. **Root Directory**
+   - `index.html`: Main entry point
+   - `README.md`: Project documentation
+   - `LICENSE`: Project license file
+
+2. **Assets Directory**
+   - `css/style.css`: All styling rules
+   - `js/main.js`: JavaScript functionality
+   - `images/`: All image assets
+
+3. **Source (scr) Directory**
+   - `auth/`: Authentication related files
+     - `firebase/`: Firebase integration
+     - `user/`: User authentication
+   - `features/`: Core application features
+   - `menu/`: Navigation menu pages
+
+### Key Improvements:
+
+1. **Separation of Concerns**:
+   - CSS, JS, and images moved to dedicated folders
+   - Auth-related files grouped together
+   - Features separated from menu items 
+
+2. **Better Organization**:
+   - Clear distinction between assets and source code
+   - Logical grouping of related files
+   - Scalable structure for future additions
+
+3. **Maintainability**:
+   - Easier to locate specific files
+   - Better for team collaboration
+   - More professional project structure
+
+This structure follows modern web development practices and makes the project more maintainable as it grows. You can move the CSS and JavaScript from the HTML file to their respective files in the assets folder for better code organization.
+
 ## Installation
 
 No installation required. Simply open `index.html` in any modern web browser.
