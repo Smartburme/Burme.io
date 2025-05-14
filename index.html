@@ -3,6 +3,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Smart Burme - Login</title>
+    <!-- Add Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <style>
         * {
             margin: 0;
@@ -22,7 +26,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: url('scr/background.jpg') no-repeat center center/cover;
+            background: url('http://amk.com/fire.git') no-repeat center center/cover;
             filter: brightness(0.5) blur(2px);
             z-index: -1;
         }
@@ -78,19 +82,6 @@
             opacity: 0.8;
         }
 
-        footer {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 0.8em;
-            background: linear-gradient(to right, #00c6ff, #0072ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-fill-color: transparent;
-        }
-
         /* Slide Menu */
         .menu-btn {
             position: absolute;
@@ -112,9 +103,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: top;
+            justify-content: flex-start;
             gap: 30px;
             transition: right 0.5s;
+            padding-top: 70px;
         }
 
         .menu a {
@@ -130,6 +122,20 @@
 
         .menu.active {
             right: 0;
+        }
+
+        .menu-footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8em;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
+            padding: 0 20px;
         }
 
         /* Responsive Design */
@@ -188,22 +194,33 @@
     <a href="scr/menu/account.html">Account</a>
     <a href="scr/menu/setting.html">Settings</a>
     <a href="scr/menu/about.html">About</a>
+    <div class="menu-footer">
+        Deployment by Aung Myo Kyaw
+    </div>
 </div>
 
 <div class="container">
     <h1>Smart Burme</h1>
     <p>Craft your mind, mind your craft</p>
     <div class="buttons">
-        <button onclick="window.location.href='scr/user/sing.html'">Sign In</button>
-        <button onclick="window.location.href='scr/firebase/auth.html'">Sign Up</button>
+        <button onclick="window.location.href='scr/user/in.html'">Sign In</button>
+        <button onclick="window.location.href='scr/user/up.html'">Sign Up</button>
     </div>
 </div>
 
-<footer>
-    Deployment by Aung Myo Kyaw
-</footer>
-
+<!-- Firebase Config -->
 <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyAr7Hv2ApKtNTxF11MhT5cuWeg_Dgsh0TY",
+        authDomain: "smart-burme-app.firebaseapp.com",
+        projectId: "smart-burme-app",
+        storageBucket: "smart-burme-app.appspot.com",
+        messagingSenderId: "851502425686",
+        appId: "1:851502425686:web:f29e0e1dfa84794b4abdf7"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    
     function toggleMenu() {
         document.getElementById('menu').classList.toggle('active');
     }
